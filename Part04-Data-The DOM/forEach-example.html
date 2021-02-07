@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForEach Array Method</title>
+</head>
+
+<body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <!-- In the JS script block we have the example of using forEach() array method -->
+    <script>
+        var letters = ["A", "B", "C", "D", "E", "F", "G"];
+
+        // first way 1:
+        document.getElementById("demo1").innerHTML = letters;
+        // The result: A,B,C,D,E,F,G
+
+        // second way 2:
+        for (var i = 0; i < letters.length; i++) {
+            document.getElementById("demo2").innerHTML += letters[i];
+        }
+
+        // third way 3: using forEach() method and callback function
+        // forEach() Method:
+        // Performs the specified action (function) for each element in an array.
+        /*
+         array.forEach()
+         for more information:
+         https://www.w3schools.com/jsref/jsref_foreach.asp
+        */
+        letters.forEach(myFunction);
+
+        function myFunction(item) {
+            document.getElementById("demo3").innerHTML += item;
+        }
+
+        // fourth way 4: the same as the second just by using anonymous function
+        letters.forEach(function (item) {
+            document.getElementById("demo4").innerHTML += item;
+        });
+
+        /* ***** Example for Object.keys() ***** */
+        /*
+        Object.keys(): takes a JS object and return its keys only as an array structure
+        */
+        var obj1 = {
+            // key: value;
+            a: 'any text', // string
+            b: 2020, // number
+            c: true // boolean
+        };
+
+        console.log(Object.keys(obj1));
+
+        var obj1Array = Object.keys(obj1);
+        console.log(obj1Array); // (3) ["a", "b", "c"]
+
+        // JS Review: Math.max()
+        // Check this link for more details:
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+        var numbers = [10, 30, 20, 50, 40, 60, 90, 80];
+        console.log(Math.max(...numbers));
+    </script>
+</body>
+
+</html>

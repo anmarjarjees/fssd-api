@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Review</title>
+    <style>
+        /* you can watch My recorded lesson video for these two CSS rules: */
+        p#one-par {
+            margin-bottom: 30px;
+        }
+
+        div#output {
+            margin-top: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        display the car info inside this div element
+
+        each text output has to be inside p element:
+        <div id="output">
+            <p> first text </p>
+            <p> second text </p>
+            // and so on...
+        </div>
+    -->
+    <p id="one-par">All the results are displayed below using JS DOM functions:</p>
+    <div id="output">
+
+    </div>
+
+    <script>
+        // Review: Objects and Arrays
+
+        // 1. Objects (Review Again)
+        // Object can contain many values:
+        /*
+        creating our own object.
+        */
+        var car = {
+            // we and add the object members:
+            // - Properties: variables declared inside the object
+            // - Methods: functions declared inside the object
+            type: "Honda",
+            model: 2019,
+            color: "white"
+        } // end car object
+
+        var mySecondCar = {
+            type: "Kia",
+            model: "2012",
+            color: "silver"
+        }
+
+        // to access any object property: objectName.property
+        // to access any object method: objectName.method()
+
+        // Below we are targeting our first object "car":
+        console.log("The car type is: " + car.type); // Honda
+        console.log("The car model is: " + car.model); // 2019
+        console.log("The car color is: " + car.color); // white
+
+        // 2. Arrays (Review Again) 
+        var cars = ["Saab", "Volvo", "BMW"];
+
+        // to access the second value as Arrays are 0 based index ==> Volvo
+        // Volo is the index of 1
+        console.log(cars[1]); // volvo
+
+
+        // 3. Combine the two objects and Arrays:
+        // so below, we are creating an array of Objects
+        // an array that contains objects:
+        /*
+        Task:
+        - create an array named "theCars"
+        - each element will be an object to explain the specifications
+        */
+
+        // 2D array: for example
+        /*
+        var theCars = [
+            ['BMW','2019','white'],
+            ['Kia','2012','white'],
+            ['Dodge','2010','silver'],
+        ];
+        */
+
+        var theCars = [
+            {
+                type: "Honda",
+                model: 2019,
+                color: "white",
+            },
+            {
+                type: "Kia",
+                model: 2012,
+                color: "silver"
+            },
+            {
+                type: "Fiat",
+                model: 2010,
+                color: "blue"
+            },
+            {
+                type: "Volvo",
+                model: 2012,
+                color: "red"
+            }
+        ];
+
+        // Just for learning, let's try to create an object that contains arrays
+        var myCarCollections = {
+            car1: ['BMW', 2019, 'white'],
+            car2: ['Kia', 2012, 'white'],
+            car3: ['Dodge', 2010, 'silver']
+        }
+
+        // or we can change it to:
+        var myCarInfo = {
+            name: ['BMW', 'Kia', 'Dodge'],
+            year: [2019, 2012, 2020],
+            color: ['white', 'silver', 'red']
+        }
+
+        // Let's start outputting (printing) info from the array named "theCars":
+
+        /*
+        Task: 
+        To access (console.log) the second element property "type" value 
+        of the array theCars.
+
+        Second element has index of 1
+        */
+
+        // let's first try this simple general output:
+        console.log("The second element of theCars array is:", theCars[1]);
+        // the output: {type: "Kia", model: "2012", color: "silver"}
+
+        // But the task needs to print: property "type" value?????
+        console.log("The second element 'type' property of theCars array is:", theCars[1].type);
+        // The second element 'type' property of theCars array is: Kia
+
+        // We can also print the result into our div#output
+        // display the car "inside" the element with id="output":
+        // let's create a variable to contain (get) the div#output:
+        var div = document.getElementById("output");
+
+        // output (display): "Fiat model 2010" to our document inside div#output
+        // using our array of objects: theCars
+        // Please remember that we use "innerHTML" to set a value
+        div.innerHTML = "<p>" + theCars[2].type + " model " + theCars[2].model + "</p>";
+
+        // Task: adding more 2 cars to be displayed also with the Fiat
+        // let's try to display these two cars below Fiat:
+        // Honda model 2019
+        // Volvo model 2012
+        // The hint: we want the following two strings to be added to our previous one:
+        div.innerHTML += "<p>" + theCars[0].type + " model " + theCars[0].model + "</p>";
+        div.innerHTML += "<p>" + theCars[3].type + " model " + theCars[theCars.length - 1].model + "</p>";
+
+        // *****************************
+        // Don't forget our objects: myCarCollections and myCarInfo:
+        /*
+        var myCarInfo = {
+            name: ['BMW', 'Kia', 'Dodge'],
+            year: [2019, 2012, 2020],
+            color: ['white', 'silver', 'red']
+        }
+        */
+
+        // trying to console the info for this car: BMW 2019:
+        console.log(myCarInfo.name[0] + " model " + myCarInfo.year[0]);
+        // The output: BMW model 2019
+    </script>
+</body>
+
+</html>

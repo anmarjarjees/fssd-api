@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Test</title>
+</head>
+
+<body>
+    <!-- 
+ The last step after finishing all 4 steps in the JS file, we need to modify the HTML code:   
+ so instead of just passing the type like 'people', 'planets', etc.. we are going to send the full URL:
+ -->
+
+    <!-- <button onclick="writeToDocument('people')">People</button> The old code -->
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/people')">People</button>
+    <!-- and do the same for all by adding "https://ci-swapi.herokuapp.com/api/" before each type: -->
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/planets')">Planets</button>
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/species')">Species</button>
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/starships')">Starship</button>
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/vehicles')">Vehicles</button>
+    <button onclick="writeToDocument('https://ci-swapi.herokuapp.com/api/films')">Films</button>
+    <div id="data"></div>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.keys()</title>
+</head>
+
+<body>
+    <script>
+        /* ***** Example for Object.keys() ***** */
+        /*
+        I took the following example from developer.mozilla.org. 
+        The full link is: 
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+        The Object.keys() method returns an array of a given object's own enumerable property names, 
+        iterated in the same order that a normal loop would.
+        */
+        var obj1 = {
+            a: 'any text', // string
+            b: 2020, // number
+            c: true // boolean
+        };
+
+        console.log(Object.keys(obj1));
+
+        var obj1Array = Object.keys(obj1);
+        console.log(obj1Array); // (3) ["a", "b", "c"]
+
+        // **************
+        // More Examples:
+        // **************
+        // simple array
+        const arr = ['a', 'b', 'c'];
+        // Below we will receive the keys of each value which is the index of each value
+        // So we wil have an array of these values: 0, 1, and 2
+        console.log(Object.keys(arr)); // console: ['0', '1', '2']
+
+        // array like object
+        const obj = {
+            0: 'a',
+            1: 'b',
+            2: 'c'
+        };
+        console.log(Object.keys(obj)); // console: ['0', '1', '2']
+
+        // array like object with random key ordering
+        const anObj = {
+            100: 'a',
+            2: 'b',
+            7: 'c'
+        };
+        console.log(Object.keys(anObj)); // console: ['2', '7', '100']
+
+        // More Advanced Example:
+        // getFoo is a property which isn't enumerable
+        const myObj = Object.create({}, {
+            getFoo: {
+                value: function () { return this.foo; }
+            }
+        });
+        myObj.foo = 1;
+        console.log(Object.keys(myObj)); // console: ['foo']
+    </script>
+</body>
+
+</html>
