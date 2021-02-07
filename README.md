@@ -2,7 +2,7 @@
 An application programming interface (API), is a computing interface that defines interactions between multiple software intermediaries.
 
 ## About This Repo:
-Application Programming Interface (API) Code Examples and Exercises for My Students - Full-Stack Software Developer Program
+Application Programming Interface (API) Code Examples and Exercises with Comments for My Students - Full-Stack Software Developer Program
 
 ## Refernces:
 - Code Institute | Full Stack Software Development Diploma
