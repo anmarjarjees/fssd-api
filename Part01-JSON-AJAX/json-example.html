@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just more about basic JSON</title>
+</head>
+
+<body>
+    <div id="programs">
+
+    </div>
+
+    <div id="program_list">
+
+    </div>
+    <script>
+
+        setTimeout(function () {
+            // this console.log will be run after 1000 MSC = 1 Second
+            alert("After waiting for 3 second");
+            // let's try to display the "data" array value to the client
+            // for (let i = 0; )
+        }, 3000); // we put one second of delay
+
+
+        /*
+        First Element:
+        -	course_name => Database Administrator
+        -	course_length => 1 Year
+        -	course_modules => 8
+
+        Second Element:
+        -	course_name => Computer Programming
+        -	course_length => 8 months
+        -	course_modules => 12
+
+        Third Element:
+        -	course_name => Web Design
+        -	course_length => 6 months
+        -	course_modules => 10
+
+        Forth Element:
+        -	course_name => Network Administrator
+        -	course_length => 7 months
+        -	course_modules => 9
+
+        Json lint
+
+        Below is an array of JSON objects
+        */
+
+        var itPrograms = [{
+            "course_name": "Database Administrator",
+            "course_length": "1 Year",
+            "course_modules": 8
+        },
+
+        {
+            "course_name": "Computer Programming",
+            "course_length": "8 months",
+            "course_modules": 12
+        },
+
+        {
+            "course_name": "Web Design",
+            "course_length": "6 months",
+            "course_modules": 10
+        },
+
+
+        {
+            "course_name": "Network Administrator",
+            "course_length": "7 months",
+            "course_modules": 9
+        }
+        ];
+
+        // create a new varaible with empty string value:
+        let programsInfo = "";
+        for (let i = 0; i < itPrograms.length; i++) {
+            // testing:
+            console.log(itPrograms[i]); // {course_name: "Database Administrator", course_length: "1 Year", course_modules: 8
+            programsInfo += "<br>" + itPrograms[i].course_name;
+            programsInfo += "<br>" + itPrograms[i].course_length;
+            programsInfo += "<br>" + itPrograms[i].course_modules;
+            programsInfo += "<hr>";
+        }
+
+        // document.write(programsInfo);
+        document.getElementById("programs").innerHTML = programsInfo;
+
+        // or with ul, but first let's reset the programsInfo string:
+        programsInfo = "";
+        for (let i = 0; i < itPrograms.length; i++) {
+            // testing:
+            console.log(itPrograms[i]); // {course_name: "Database Administrator", course_length: "1 Year", course_modules: 8
+            programsInfo += "<ul>";
+            programsInfo += "<li>" + itPrograms[i].course_name + "</li>";
+            programsInfo += "<li>" + itPrograms[i].course_length + "</li>";
+            programsInfo += "<li>" + itPrograms[i].course_modules + "</li>";
+            programsInfo += "</ul>";
+        }
+
+        console.log(programsInfo);
+        /*
+        <ul><li>Database Administrator</li><li>1 Year</li><li>8</li></ul><ul><li>Computer Programming</li><li>8 months</li><li>12</li></ul><ul><li>Web Design</li><li>6 months</li><li>10</li></ul><ul><li>Network Administrator</li><li>7 months</li><li>9</li></ul>
+        */
+        document.getElementById("program_list").innerHTML = programsInfo;
+    </script>
+
+
+</body>
+
+</html>

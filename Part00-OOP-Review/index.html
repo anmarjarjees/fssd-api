@@ -29,7 +29,16 @@
         </div>
     -->
     <p id="one-par">All the results are displayed below using JS DOM functions:</p>
+
     <div id="output">
+
+    </div>
+
+    <div id="list1">
+
+    </div>
+
+    <div id="list2">
 
     </div>
 
@@ -44,7 +53,7 @@
         var car = {
             // we and add the object members:
             // - Properties: variables declared inside the object
-            // - Methods: functions declared inside the object
+            // - Methods: functions declared inside the object (no methods here)
             type: "Honda",
             model: 2019,
             color: "white"
@@ -52,67 +61,127 @@
 
         var mySecondCar = {
             type: "Kia",
-            model: "2012",
+            model: 2012,
             color: "silver"
         }
 
+        // Using the dot notation to access any object's members
         // to access any object property: objectName.property
         // to access any object method: objectName.method()
 
         // Below we are targeting our first object "car":
-        console.log("The car type is: " + car.type); // Honda
-        console.log("The car model is: " + car.model); // 2019
-        console.log("The car color is: " + car.color); // white
+        // Task: output its type, model, color individually
+        // ALT+SHIFT+F: Format my code
+        console.log("The car type is: " + car.type);
+        console.log("The car model is: " + car.model);
+        console.log("The car color is: " + car.type);
 
-        // 2. Arrays (Review Again) 
+        // You can repeat the same thing for the second object "mySecondCar"
+
+        // 2. Arrays (Review Again) (1D)
         var cars = ["Saab", "Volvo", "BMW"];
-
         // to access the second value as Arrays are 0 based index ==> Volvo
-        // Volo is the index of 1
+        // Volvo has the index of 1
         console.log(cars[1]); // volvo
 
 
-        // 3. Combine the two objects and Arrays:
+        // Example of 2D array: [2 arrays]
+        // one major array (the root/the parent) and the second sub-array (the child)
+        // every element is an array by itself
+        var myCars = [
+            ['BMW', 2019, 'white'],
+            ['Kia', 2012, 'white'],
+            ['Dodge', 2010, 'silver'],
+        ];
+        // To access the first element (array)
+        console.log(myCars[0]);
+
+        // To access the first element of the first array?
+        // how to access the value/element : "BMW"
+        // The logic:
+        // 1. BMW is in the first element (array) of myCars which is the index 0        
+        // 2. BMW is the first element in the array
+        console.log(myCars[0][0]);
+
+        // Task: How to access the value of "Dodge":
+        /*
+        myCars array has these three elements
+        index 0: ['BMW', 2019, 'white']
+        index 1: ['Kia', 2012, 'white']
+        index 2: ['Dodge', 2010, 'silver']
+
+        The first index will be 3 => myCars[3]
+        myCars[2] has these three elements:
+        index 0: 'Dodge'
+        index 1: 2010
+        index 2: 'silver'
+        */
+        console.log(myCars[2][0]);
+
+        // Task: output the value model number of the Dodge (try it) 
+
+
+        // 3. Combine the two: objects and Arrays:
         // so below, we are creating an array of Objects
         // an array that contains objects:
         /*
         Task:
         - create an array named "theCars"
-        - each element will be an object to explain the specifications
+        - each element will be an object (not array) to explain the car specifications
+        - the object is built on key: value
         */
-
-        // 2D array: for example
-        /*
-        var theCars = [
-            ['BMW','2019','white'],
-            ['Kia','2012','white'],
-            ['Dodge','2010','silver'],
-        ];
-        */
-
         var theCars = [
             {
-                type: "Honda",
-                model: 2019,
-                color: "white",
+                type: 'BMW',
+                year: 2019,
+                color: 'white',
             },
             {
                 type: "Kia",
-                model: 2012,
-                color: "silver"
+                year: 2012,
+                color: "silver",
             },
             {
                 type: "Fiat",
-                model: 2010,
-                color: "blue"
+                year: 2010,
+                color: "blue",
             },
             {
                 type: "Volvo",
-                model: 2012,
-                color: "red"
+                year: 2012,
+                color: "red",
             }
         ];
 
+        // for testing
+        console.log(theCars); // (4) [{…}, {…}, {…}, {…}]
+        /*
+            0: {type: "BMW", year: 2019, color: "white"}
+            1: {type: "Kia", year: 2012, color: "silver"}
+            2: {type: "Fiat", year: 2010, color: "blue"}
+            3: {type: "Volvo", year: 2012, color: "red"}
+            length: 4
+        */
+
+        document.write(theCars);
+        // the output: [object Object],[object Object],[object Object],[object Object]
+
+        // Task: output (console.log): "Fiat" => output the value of the key "type"
+        // Step 1:
+        console.log(theCars[2]);
+        // remember that theCars[2] is an object 
+        // the output: {type: "Fiat", year: 2010, color: "blue"}
+        // We know that  [] for arrays, and {} for objects
+
+        // Step 2:
+        // because theCars[2] is an object
+        // we can use the . notation to access its keys (properties)
+        console.log("The car type: " + theCars[2].type);
+
+        // let's do it with document.write()
+        document.write("<br><br>The car type: " + theCars[2].type);
+
+        // Can we reverse the idea! by creating object that contains array?
         // Just for learning, let's try to create an object that contains arrays
         var myCarCollections = {
             car1: ['BMW', 2019, 'white'],
@@ -122,21 +191,40 @@
 
         // or we can change it to:
         var myCarInfo = {
-            name: ['BMW', 'Kia', 'Dodge'],
-            year: [2019, 2012, 2020],
-            color: ['white', 'silver', 'red']
+            names: ['BMW', 'Kia', 'Dodge'],
+            years: [2019, 2012, 2020],
+            colors: ['white', 'silver', 'red']
         }
 
+        // trying to console the info for this car: BMW 2019 from the myCarCollections:
+        console.log(myCarCollections.car1[0] + " model " + myCarCollections.car1[1]);
+        // The output: BMW model 2019
+
+        // trying to console the info for this car: BMW 2019 from the myCarInfo:
+        console.log(myCarInfo.names[0] + " model " + myCarInfo.years[0]);
+        // The output: BMW model 2019
+
+
         // Let's start outputting (printing) info from the array named "theCars":
+        /*
+            theCars (array of objects):
+
+            0: {type: "BMW", year: 2019, color: "white"}
+            1: {type: "Kia", year: 2012, color: "silver"}
+            2: {type: "Fiat", year: 2010, color: "blue"}
+            3: {type: "Volvo", year: 2012, color: "red"}
+            
+            length: 4
+        */
 
         /*
-        Task: 
-        To access (console.log) the second element property "type" value 
+        Task:
+        To access (console.log) the second element property "type" value
         of the array theCars.
+        in other word, we need to access the value of "kia"
 
         Second element has index of 1
         */
-
         // let's first try this simple general output:
         console.log("The second element of theCars array is:", theCars[1]);
         // the output: {type: "Kia", model: "2012", color: "silver"}
@@ -145,37 +233,82 @@
         console.log("The second element 'type' property of theCars array is:", theCars[1].type);
         // The second element 'type' property of theCars array is: Kia
 
+
+        // Task output [document.write()]: 
+        // using our array of objects: theCars
+        // "Fiat model 2010 with blue color" to our document inside div#output
         // We can also print the result into our div#output
         // display the car "inside" the element with id="output":
         // let's create a variable to contain (get) the div#output:
-        var div = document.getElementById("output");
+        var divOutput = document.getElementById("output");
 
-        // output (display): "Fiat model 2010" to our document inside div#output
-        // using our array of objects: theCars
-        // Please remember that we use "innerHTML" to set a value
-        div.innerHTML = "<p>" + theCars[2].type + " model " + theCars[2].model + "</p>";
+        // divOutput.innerText = "Fiat model 2010 with blue color"; // :-)
+        // "x model y with z color";
+        // x, y, z should be taken from the array:
+        // Please remember that we use "innerHTML" to insert html elements also
+        divOutput.innerHTML = "<p>" + theCars[2].type + " model " + theCars[2].year + " with " + theCars[2].color + " color.</p>";
 
-        // Task: adding more 2 cars to be displayed also with the Fiat
+
+        // Task: adding 2 cars more to be displayed also with the Fiat
         // let's try to display these two cars below Fiat:
-        // Honda model 2019
-        // Volvo model 2012
-        // The hint: we want the following two strings to be added to our previous one:
-        div.innerHTML += "<p>" + theCars[0].type + " model " + theCars[0].model + "</p>";
-        div.innerHTML += "<p>" + theCars[3].type + " model " + theCars[theCars.length - 1].model + "</p>";
+        // kia model 2012 with silver => has the index 1
+        // Volvo model 2012 with red color => has the index 3
 
-        // *****************************
-        // Don't forget our objects: myCarCollections and myCarInfo:
+        // the code for the car "Kia"
+        // The hint: 
+        // we want the following two strings to be "added/concatenated" to our previous one:
+        divOutput.innerHTML += "<p>" + theCars[1].type + " model " + theCars[1].year + " with " + theCars[1].color + " color.</p>";
+
+        // the code for the car "Volvo"
+        divOutput.innerHTML += "<p>" + theCars[3].type + " model " + theCars[3].year + " with " + theCars[3].color + " color.</p>";
+
+        // output the same information but this time using ul list:
+        var divList1 = document.getElementById("list1");
+        // create a new varaible to save the entire ul and li as on string:
+        var myOutput = "<ul>";
+        myOutput += "<li>item1</li>";
+        myOutput += "<li>item2</li>";
+        myOutput += "</ul>";
+
+        // for testing:
+        console.log(myOutput);
+        // the output of "myOutput": <ul><li>item1</li><li>item2</li></ul>
+        divList1.innerHTML = myOutput;
         /*
-        var myCarInfo = {
-            name: ['BMW', 'Kia', 'Dodge'],
-            year: [2019, 2012, 2020],
-            color: ['white', 'silver', 'red']
-        }
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+            </ul>
         */
 
-        // trying to console the info for this car: BMW 2019:
-        console.log(myCarInfo.name[0] + " model " + myCarInfo.year[0]);
-        // The output: BMW model 2019
+        // after testing, we can reset our output to <ul> string:
+        myOutput = "<ul>";
+
+        myOutput += "<li>" + theCars[0].type + " model " + theCars[0].year + " with " + theCars[0].color + " color</li>";
+
+        myOutput += "<li>" + theCars[1].type + " model " + theCars[1].year + " with " + theCars[1].color + " color</li>";
+
+        myOutput += "<li>" + theCars[2].type + " model " + theCars[2].year + " with " + theCars[2].color + " color</li>";
+
+        myOutput += "<li>" + theCars[3].type + " model " + theCars[3].year + " with " + theCars[3].color + " color</li>";
+
+        myOutput += "</ul>";
+
+        divList1.innerHTML = myOutput;
+
+        // Let's repeat the same code/output but using for loop (better):
+        // after the first task is done, we can reset our output to <ul> string:
+        myOutput = "<ul>";
+        for (let i = 0; i < theCars.length; i++) {
+            myOutput += "<li>" + theCars[i].type + " model " + theCars[i].year + " with " + theCars[i].color + " color</li>";
+        }
+        myOutput += "</ul>";
+
+        // output the same information but this time using ul list:
+        var divList2 = document.getElementById("list2");
+        divList2.innerHTML = myOutput;
+
+
     </script>
 </body>
 

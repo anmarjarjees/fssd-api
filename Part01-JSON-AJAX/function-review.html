@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Review</title>
+</head>
+
+<body>
+    <script>
+        /*
+Problem:
+Drink About is a simple "function"
+that will check the "age" and "return" a drink appropriate for your age. 
+
+Create a function called "whatCanIDrink". 
+This function should take in age as parameter. 
+
+The function should do the following:
+
+If the age is less than 0, then it should return "Sorry. I can’t tell what drink because that age is incorrect!"
+If the age is less than 14, then it should return "Drink Toddy"
+If the age is less than 18, then it should return "Drink Coke"
+If the age is less than 21, then it should return "Drink Beer"
+If the age is less than 130, then it should return "Drink Whisky"
+Else return "Sorry. I can’t tell what drink because that age is incorrect!"
+*/
+
+        /*
+        LMS (Code Institute) Way: 
+        whatCanIDrink = function(age) {
+            code block...
+        }
+        */
+
+        function whatCanIDrink(age) {
+            if (age < 0) {
+                return "Sorry. I can’t tell what drink because that age is incorrect!";
+            } else if (age < 14) {
+                return "Drink Toddy";
+            } else if (age < 18) {
+                return "Drink Coke";
+            } else if (age < 21) {
+                return "Drink Beer";
+            } else if (age < 130) {
+                return "Drink Whisky";
+            } else {
+                return "Sorry. I can’t tell what drink because that age is incorrect!";
+            }
+        }
+
+
+        // call my function:
+        let drinkType = whatCanIDrink(18);
+        console.log(drinkType);
+
+        // Just for learning purpose (going beyond the challenge requirements)
+        // you can add other function(s):
+
+        // instead of: function evenOdd(num) { }
+        // we can use this format/template
+        evenOdd = function (num) {
+            if (num % 2 === 0) {
+                return "Even";
+            } else {
+                return "Odd";
+            }
+        }
+
+        console.log("Number 2 is: " + evenOdd(2));
+        console.log("Number 3 is: " + evenOdd(3));
+
+        isValidAge = function (age) {
+            if (age >= 18) {
+                console.log("Yes you can buy fireworks");
+            }
+            else {
+                console.log("Yes you cannot buy fireworks");
+            }
+        }
+
+        isValidAge(18);
+        isValidAge(17);
+        isValidAge(28);
+    </script>
+</body>
+
+</html>
