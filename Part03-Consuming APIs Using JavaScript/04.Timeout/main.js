@@ -13,15 +13,16 @@ function setData(objectData) {
 }
 */
 
+
 xhr.onreadystatechange = function () {
     /*
-To understand what's happening inside onreadystatechange function, 
-let's use console.log():
-
-so every time the function is being called,
-this.readyState will be printed in the console window
-so not only if the condition is true
-    */
+    To understand what's happening inside onreadystatechange function, 
+    let's use console.log():
+    
+    so every time the function is being called,
+    this.readyState will be printed in the console window
+    so not only if the condition is true
+        */
     console.log(this.readyState); // 2 then 3 then 4
     if (this.readyState == 4 && this.status == 200) {
         // using our Global variable "data":

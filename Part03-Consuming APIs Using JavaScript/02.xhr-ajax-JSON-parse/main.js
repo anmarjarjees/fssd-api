@@ -12,7 +12,6 @@ var data;
 
 xhr.open("GET", "https://ci-swapi.herokuapp.com/api/");
 
-
 xhr.send();
 
 xhr.onreadystatechange = function () {
@@ -48,11 +47,11 @@ xhr.onreadystatechange = function () {
 /*
 The last console.log() inside the function output (JS Object Not JSON):
 {
-    people: "https://ci-swapi.herokuapp.com/api/people/", 
-    planets: "https://ci-swapi.herokuapp.com/api/planets/", 
+    people: "https://ci-swapi.herokuapp.com/api/people/",
+    planets: "https://ci-swapi.herokuapp.com/api/planets/",
     films: "https://ci-swapi.herokuapp.com/api/films/",
     species: "https://ci-swapi.herokuapp.com/api/species/",
-    vehicles: "https://ci-swapi.herokuapp.com/api/vehicles/", 
+    vehicles: "https://ci-swapi.herokuapp.com/api/vehicles/",
 }
 */
 

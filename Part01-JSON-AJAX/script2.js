@@ -326,7 +326,7 @@ setTimeout(param1,param2);
 You can learn more:
 https://www.w3schools.com/jsref/met_win_settimeout.asp
 
-W3Schools Example:
+W3Schools Template Example:
 setTimeout(function(){ alert("Hello"); }, 3000);
 
 */

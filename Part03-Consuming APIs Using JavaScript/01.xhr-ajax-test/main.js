@@ -1,7 +1,8 @@
 /*
 This XMLHttpRequest object is an built-in object that JavaScript provides to allow us to consume APIs.
 
-XML: stands for Extensible Markup Language, which is similar to HTML in the way it structures its data, and it's a precursor to JSON.
+XML: stands for Extensible Markup Language, which is similar to HTML in the way it structures its data, 
+and it's a precursor to JSON.
 
 XMLHttpRequest object: gives us the method:
 - to open connections 
@@ -29,9 +30,11 @@ This is a standard one that a browser uses when retrieving a web page.
 
 * POST method: is used when we're sending data to the server, such as an uploaded file or form data.
 
-Since in this instance we want to retrieve data from the Star Wars API, then we're going to use the GET method.
+Since in this instance we want to retrieve data from the Star Wars API, 
+then we're going to use the GET method.
 
-2. The second argument is the URL that we want to retrieve. so we are making a request to Star Wars API that we need to send later in the next line
+2. The second argument is the URL that we want to retrieve. 
+so we are making a request to Star Wars API that we need to send later in the next line
 */
 
 // The Base URL for swapi is: https://ci-swapi.herokuapp.com/api/
@@ -75,15 +78,13 @@ We have 6 common HTTP Status Codes:
 
 500:  Internal Server Error, a generic error message, given when an unexpected condition was encountered and no more specific message is suitable. Something has gone wrong on the server
 */
-
-// console.log(document.title);
-
 xhr.onreadystatechange = function () {
+    // for testing and leaning:
+    console.log("this.readyState: " + this.readyState);
     // Check if everything has completed and the status is "OK"
     if (this.readyState == 4 && this.status == 200) {
         // Adding console.log to check this.responseText:
         console.log(typeof (this.responseText)); // string
-
         /*
         - Using JS DOM syntax to get an element by its "id"
         - then using .innerHTML to the "responseText" that comes back from our xhr object
@@ -93,11 +94,6 @@ xhr.onreadystatechange = function () {
         document.getElementById("data").innerHTML = this.responseText;
     }
 } // end onreadystatechange
-
-
-/*
-the next step is to parse that JSON to make it a little bit more understandable for our user.
-*/
 
 /*
 After running the code we will see that we have this JSON object that's been put inside our div:
@@ -112,3 +108,7 @@ After running the code we will see that we have this JSON object that's been put
 }
 */
 
+
+/*
+the next step is to parse that string of JSON format to make it a little bit more understandable for our user.
+*/

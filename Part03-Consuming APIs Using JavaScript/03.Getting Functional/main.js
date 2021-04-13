@@ -8,9 +8,13 @@ xhr.send();
 /*
 After testing the console.log(data) inside onreadystatechange function
 and understand the reason of the problem, 
-we can create another function for parsing the data and having this new function to be called inside onreadystatechange function:
+we can create another function for parsing the data 
+and having this new function to be called inside onreadystatechange function:
 */
 function setData(objectData) {
+    // calling our global variable "data"
+    // when we call the function this parameter "objectData"
+    // will be replaced with the argument/receive the value of "JSON.parse(this.responseText)"
     data = objectData;
     console.log(data); // works fine
 }
@@ -34,6 +38,10 @@ which could make things really messy and complicated because all of the code for
        Note: you need to comment the console.log(data); inside this function
         */
         setData(JSON.parse(this.responseText)); // will console.log (output) the data
+        /*
+        remember that we used only this line in our code:
+        data = JSON.parse(this.responseText);
+        */
     }
 };
 
