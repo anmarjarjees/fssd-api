@@ -67,22 +67,23 @@ function writeToDocument(url) {
             tableRows.push(`<tr>${dataRow}</tr>`);
         });
 
-        // For learning: JavaScript String replace() Method:
-        var str1 = "Visit Microsoft!";
-        var str2 = str1.replace("Microsoft", "CBC");
-        console.log(str2);
-
         /*
         STEP 1: We're going to use a .replace() method.
         And this takes two arguments:
         - First Argument: what we want to find
         - Second Argument: what we want to replace it with
+        */
+        // Only for learning purpose: JavaScript String replace() Method:
+        var str1 = "Visit Microsoft!";
+        var str2 = str1.replace("Microsoft", "CBC");
+        console.log(str2); // Visit CBC!
 
-             
-        We're going to use a regular expression to find our commas.
-        Note: regular expression will be discussed in further details in this course and mainly in Django section
+        /*
+        We're going to use a "regular expression" to find our commas.
+        Note: 
+        regular expression will be discussed in further details in this course 
+        and mainly in Django section
 
-        
         But for now, we're going to type "/" (which indicates this is a regular expression) "/,/"
         So the comma between the two forward slashes is what we want to find.
         We're then going to type g: "/,/g".
@@ -92,6 +93,9 @@ function writeToDocument(url) {
         So for the second argument, after the comma after g, we're just going to supply an empty string.
 
         In other words, we want to find all commas and replace them with an empty string.
+
+        stringObject.replace(a,b)
+        stringObject = `<table>${tableHeaders}${tableRows}</table>${pagination}`
         */
         el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`.replace(/,/g, "");
     });

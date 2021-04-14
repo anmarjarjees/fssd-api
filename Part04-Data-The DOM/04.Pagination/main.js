@@ -45,19 +45,21 @@ function generatePaginationButtons(next, prev) {
     Then: we are going to return a template literal that creates a next and a previous button.
     */
     if (next && prev) {
+        // if both variables: next and prev are true or have some value (NOT null)
+        // render the html content with inline JS (click event) to our page
         return `<button onclick="writeToDocument('${prev}')">Previous</button>
             <button onclick="writeToDocument('${next}')">Next</button>`;
         /*
         We don't want always to have a next and a previous value.
-        If we're at the beginning, then it doesn't supply a previous value. 
-        If we're at the end, it won't supply a next value.
+        If we're at the beginning (the first page), then it doesn't supply a previous value. 
+        If we're at the end (the last page), it won't supply a next value.
         */
     } else if (next && !prev) {
         return `<button onclick="writeToDocument('${next}')">Next</button>`;
     } else if (!next && prev) {
         return `<button onclick="writeToDocument('${prev}')">Previous</button>`;
     }
-}
+} // end generatePaginationButtons function
 
 /*
 Also based on STEP 4, we need to replace the 2 variables (parameters) of name "type" with "url" makes more sense to us
@@ -71,6 +73,11 @@ function writeToDocument(url) {
     getData(url, function (data) {
         /*
         STEP 1: 
+        We know the main JSON object "data" has these properties:
+        - next => will be used for the next button
+        - previous => will be used for the previous button
+        - results => for displaying all the information in a tabular format
+
         Put an if statement.
         And if (data.next || data.previous) values exist, 
         then we're going to generate some pagination buttons, some next and previous buttons.
@@ -80,6 +87,13 @@ function writeToDocument(url) {
         var pagination = ""; // create and declare "pagination" variable ="" to prevent "undefined" text
         if (data.next || data.previous) {
             // Preparing the pagination button
+            /*
+                We are passing:
+                - the value of the key "next" for data object
+                - the value of the key "previous" for data object
+
+                The value of next or previous could be a "url" or "null"
+            */
             pagination = generatePaginationButtons(data.next, data.previous)
         }
 

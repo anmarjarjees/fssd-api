@@ -26,7 +26,7 @@ function writeToDocument(type) {
         data.forEach(function (item) {
             /*
             Object.keys(item):
-            Remember that the data is stored in key-value pairs; 
+            Remember that the data is stored in "key-value" pairs; 
 
             keys such as "name", and values such as "Luke Skywalker"
 
@@ -36,6 +36,7 @@ function writeToDocument(type) {
             forEach(function(key) { }):
             Adding another forEach loop inside then we can iterate over each of these keys
             Plus adding an anonymous function to write our main code as we done above
+            "Chaining Methods"
             */
             Object.keys(item).forEach(function (key) {
                 // using console.log for testing each key value:

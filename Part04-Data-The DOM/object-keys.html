@@ -11,30 +11,39 @@
     <script>
         /* ***** Example for Object.keys() ***** */
         /*
-        I took the following example from developer.mozilla.org. 
-        The full link is: 
+        I took the following example from developer.mozilla.org.
+        The full link is:
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 
-        The Object.keys() method returns an array of a given object's own enumerable property names, 
+        The Object.keys() method returns an array of a given object's own enumerable property names,
         iterated in the same order that a normal loop would.
+
+        Object.keys(): takes a JS object and return its "keys" only as an array structure
         */
         var obj1 = {
+            // key: value;
             a: 'any text', // string
             b: 2020, // number
             c: true // boolean
         };
 
         console.log(Object.keys(obj1));
-
+        /*
+        an array of 3 elements: ["a", "b", "c"]
+        the output: (3) ["a", "b", "c"]
+        */
         var obj1Array = Object.keys(obj1);
         console.log(obj1Array); // (3) ["a", "b", "c"]
+
 
         // **************
         // More Examples:
         // **************
-        // simple array
-        const arr = ['a', 'b', 'c'];
+        // creating simple array as constant
+        const arr = ['a', 'b', 'c']; // Everything in JS is an object
+
         // Below we will receive the keys of each value which is the index of each value
+        // the keys for the values: a,b,c will be the index of each one
         // So we wil have an array of these values: 0, 1, and 2
         console.log(Object.keys(arr)); // console: ['0', '1', '2']
 
@@ -63,6 +72,12 @@
         });
         myObj.foo = 1;
         console.log(Object.keys(myObj)); // console: ['foo']
+
+        // JS Review: Math.max()
+        // Check this link for more details:
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+        var numbers = [10, 30, 20, 50, 40, 60, 90, 80];
+        console.log(Math.max(...numbers));
     </script>
 </body>
 

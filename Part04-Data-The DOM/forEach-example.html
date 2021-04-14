@@ -12,59 +12,52 @@
     <p id="demo2"></p>
     <p id="demo3"></p>
     <p id="demo4"></p>
-    <!-- In the JS script block we have the example of using forEach() array method -->
+    <!-- 
+        In the JS script block we have the example of using forEach() array method 
+    -->
     <script>
         var letters = ["A", "B", "C", "D", "E", "F", "G"];
 
+        // Task: We will output this array to p#demo1
+
         // first way 1:
-        document.getElementById("demo1").innerHTML = letters;
+        document.getElementById("demo1").innerText = letters;
         // The result: A,B,C,D,E,F,G
+
 
         // second way 2:
         for (var i = 0; i < letters.length; i++) {
-            document.getElementById("demo2").innerHTML += letters[i];
+            document.getElementById("demo2").innerText += letters[i];
         }
 
+
         // third way 3: using forEach() method and callback function
-        // forEach() Method:
+
+        // forEach() Method of a list/array object:
         // Performs the specified action (function) for each element in an array.
         /*
          array.forEach()
          for more information:
          https://www.w3schools.com/jsref/jsref_foreach.asp
+
+         forEach() method accepts a callback function (accepts a function)!
+         We have two ways to pass a function to this method:
+         1- invoking an anonymous function (the full function structure)
+         2- create this function structure outside forEach() and just call the function name inside forEach()
         */
-        letters.forEach(myFunction);
 
-        function myFunction(item) {
-            document.getElementById("demo3").innerHTML += item;
-        }
-
-        // fourth way 4: the same as the second just by using anonymous function
+        // first solution: by using anonymous function
         letters.forEach(function (item) {
-            document.getElementById("demo4").innerHTML += item;
+            // writing my code inside this anonymous function
+            document.getElementById("demo3").innerText += item;
         });
 
-        /* ***** Example for Object.keys() ***** */
-        /*
-        Object.keys(): takes a JS object and return its keys only as an array structure
-        */
-        var obj1 = {
-            // key: value;
-            a: 'any text', // string
-            b: 2020, // number
-            c: true // boolean
-        };
+        // second solution: by calling our function "display"
+        function display(item) {
+            document.getElementById("demo4").innerText += item;
+        }
 
-        console.log(Object.keys(obj1));
-
-        var obj1Array = Object.keys(obj1);
-        console.log(obj1Array); // (3) ["a", "b", "c"]
-
-        // JS Review: Math.max()
-        // Check this link for more details:
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
-        var numbers = [10, 30, 20, 50, 40, 60, 90, 80];
-        console.log(Math.max(...numbers));
+        letters.forEach(display);
     </script>
 </body>
 

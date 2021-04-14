@@ -22,7 +22,7 @@ function getData(type, cb) {
             cb(JSON.parse(this.responseText));
         }
     };
-}
+} // getData
 
 // This function will run on user click event:
 function writeToDocument(type) {
@@ -55,20 +55,31 @@ function writeToDocument(type) {
         So if we want to display this, then what we need to do, is set our innerHTML to "data.results".
         if you refresh the page and click on people, you will have 10 objects being rendered
         */
+        // document.getElementById("data").innerHTML = data.results;
+        /*
+        The output: 
+        [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+        */
 
         // for testing and learning:
         // the result below if we click the "people" button:
         // document.getElementById("data").innerHTML = data.count; // 82
-        // document.getElementById("data").innerHTML = data.next; // https://ci-swapi.herokuapp.com/api/people/?page=2
-        // document.getElementById("data").innerHTML = data.results; // the list of all [object object]
+
+        // document.getElementById("data").innerHTML = data.next;
+        // the output: https://ci-swapi.herokuapp.com/api/people/?page=2
+
+        // document.getElementById("data").innerHTML = data.previous; // null (nothing to display)
 
         /*
-        Now instead of using "data.results", we're going to overwrite our existing data variable with "data.results" to make it easier:                     
+        Now instead of using "data.results", 
+        we're going to overwrite our existing data variable with "data.results" to make it easier:                     
         Just take out the "console.dir". So we do "data = data.results".
         */
         data = data.results;
-
+        // To recap from our JS Fundamentals 
         console.log("data of results: " + data); // for testing
+        console.log("data of results: ", data); // for testing
+
         /*
        now we can use a for each loop:
 
@@ -86,6 +97,8 @@ function writeToDocument(type) {
          array.forEach()
          for more information:
          https://www.w3schools.com/jsref/jsref_foreach.asp
+
+         or just refer to our example "forEach-example.html"
         */
 
         /*
@@ -103,7 +116,28 @@ function writeToDocument(type) {
         while = will override the previous one
         */
         data.forEach(function (item) {
+            console.log(item);
+            /*
+            based on the output of console.log
+            item is an object:
+            example of first id 1 for people:
+            {
+                 name: "Luke Skywalker",
+                 height: "172", 
+                 mass: "77", 
+                 hair_color: "blond", 
+                 skin_color: "fair", 
+            …}
+            */
             document.getElementById("data").innerHTML += "<p>" + item.name + "</p>";
+            // we can output the rest of the properties for item object:
+            // Notice that the height and mass properties are only for "people"
+            // also the "films" type doesn't have the "name" property
+            document.getElementById("data").innerHTML += "<p>" + item.height + "</p>";
+            document.getElementById("data").innerHTML += "<p>" + item.mass + "</p>";
+            // and so on for the rest of properties
+            document.getElementById("data").innerHTML += "<hr>";
         });
     });
 } // writeToDocument
+

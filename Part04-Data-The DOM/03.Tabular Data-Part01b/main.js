@@ -36,6 +36,7 @@ function getTableHeaders(obj) {
         backtick, or back quote, formation here. Those are not standard single quotes.
         This is something called a "template literal", which allows us to interpolate variables and strings like this.
         */
+
         tableHeaders.push(`<td>${key}</td>`);
         /*
         Notice that if you don't want to use this new way "backtick" or "back quote",
@@ -56,11 +57,19 @@ function writeToDocument(type) {
 
     getData(type, function (data) {
         data = data.results;
+        console.log(data); // (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
         /*
         Once we've retrieved our data, we'll call the getTableHeaders function.
-        And passing the first object in the array.
+        Since all the 10 elements/objects of the data array have the same keys "properties",
+        We can just access the keys/properties of the first element
+        So we are passing the "first object (the index of 0)" in the "array (data array)" => we use data[0];
         
         and save the returned value which is a table row into a new variable "tableHeaders"
+        */
+        console.log(data[0]);
+        /*
+        // getting only the first element/object of the data array:
+        {name: "Luke Skywalker", height: "172", mass: "77", hair_color: "blond", skin_color: "fair", …}
         */
         var tableHeaders = getTableHeaders(data[0]);
 

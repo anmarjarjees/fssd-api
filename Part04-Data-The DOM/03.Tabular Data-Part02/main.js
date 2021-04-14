@@ -62,12 +62,11 @@ function writeToDocument(type) {
                 dataRow.push(`<td>${item[key]}</td>`);
             });
             /*
-When that row is created then, after it's iterated over, we need to push that row into our tableRows array.
+            When that row is created then, after it's iterated over, 
+            we need to push that row into our tableRows array.
             */
             tableRows.push(dataRow);
         });
-
-
 
         el.innerHTML = `<table>${tableHeaders}${tableRows}</table>`;
     });

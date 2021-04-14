@@ -37,12 +37,13 @@ function writeToDocument(type) {
                 /*
                 2. Second:
                 The other thing that we need to do to get it displaying nicely is to truncate, 
-                or shorten, the information that's been inserted into our <td> element to make them take up less space on the screen,
-                so no need to keep scrolling.
+                or shorten, the information that's been inserted into our <td> element 
+                to make them take up less space on the screen, so no need to keep scrolling.
 
                 Our major task is to learn how to display this JSON data, more than how to present them.
 
-                we created a new variable called rowData, which is going to be set to the value of the key and make sure it's a string
+                we created a new variable called rowData, 
+                which is going to be set to the value of the key and make sure it's a string
                 */
                 var rowData = item[key].toString();
 
@@ -62,7 +63,8 @@ function writeToDocument(type) {
                 // dataRow.push(`<td>${item[key]}</td>`); // We don't want to display the rowData anymore
             });
             /*
-            1. First: first thing that we need to do is to have everything appearing on a separate row. by adding <tr>:
+            1. First: first thing that we need to do is to have everything appearing on a separate row. 
+            by adding <tr>:
             */
             tableRows.push(`<tr>${dataRow}</tr>`);
         });

@@ -1,6 +1,9 @@
 /*
 Creating a constant for the base url:
 so it will never change
+
+Review example:
+const COLLEGE = "Canadian Business College";
 */
 const baseURL = "https://ci-swapi.herokuapp.com/api/";
 
@@ -49,7 +52,7 @@ function getData(type, cb) {
 }
 
 // This is our first initial function to output the info into the console window
-// we don't want, because we want to display them in our HTML document
+// we don't want this function, because we want to display them in our HTML document for our clients
 /*
 function printDataToConsole(data) {
     console.log(data);
@@ -65,10 +68,13 @@ So that would be a film, people, starships, vehicles, species, so on.
 */
 function writeToDocument(type) {
     // alert(type); // for test OK
-    // we can invoke an anonymous function
+    // calling our custom AJAX function "getData()":
+    // passing two arguments:
+    // 1) the type: film, people, starships, vehicles, species
+    // 2) a function: Invoke an anonymous function to be passed to the cb parameter
     getData(type, function (data) {
         console.log(data); // for testing
-        document.getElementById("data").innerHTML = data; // object
+        document.getElementById("data").innerHTML = data;
         // The result will be always: [object Object]
     });
-}
+} // end function writeToDocument
